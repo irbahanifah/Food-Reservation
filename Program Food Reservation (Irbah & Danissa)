@@ -1,0 +1,567 @@
+#include <stdio.h>			
+#include <ctype.h>
+#include <windows.h>
+
+void sushi();		
+void sashimi();
+void noodle_rice();
+void main_menu(); 
+void printbill();
+void keluar();
+int x[9]={10, 10, 10, 10, 10, 10, 10, 10, 10};
+int s, c;
+int num;		
+int price;
+int total1=0;
+int total2=0;
+int total3=0;
+int total4=0;
+int total5=0;
+int total6=0;
+int total7=0;
+int total8=0;
+int total9=0;
+int total=0;
+int totalb = 0;
+int totala;
+int harga, n;
+
+char choice;
+int again;
+
+int balik(int s){
+
+int a;	
+			 if (s == 1 ){
+			 	if (choice = 1) {
+			 	a=s;
+
+			 	
+				}
+				return a;
+			
+			 }
+				
+			 else if (s== 2 ){
+				a=s;
+				return a;
+			 }
+
+			 else if (s!= 1 , 2){
+				 printf("\n\n\t\tSorry Invalid Decision Entered\n\n\n\n");
+				 keluar();
+				}
+}
+
+int stok(int c, int n){
+	
+		totala = (n*c);
+	    total+= totala;
+	    
+	    return total;
+	
+}
+
+
+int main()
+{
+	main_menu();
+	return 0;
+}
+
+ 
+void main_menu()  {
+	char choice = ' ' ; //local variable
+
+  fflush(stdin);
+  printf("\n                Welcome to Our Restaurant.          \n ");
+  printf("             +============================+          \n\n");
+  printf("  && Please select the meal that you would like to purchase. && \n\n");
+  printf("\t\t      [A] Sushi\n");
+  printf("\t\t      [B] Sashimi\n");
+  printf("\t\t      [C] Noodle/Rice\n");
+  printf("\t\t		[D] Print Bill\n");
+  printf("\t\t      [E] Exit\n\n");
+  printf("Enter your choice here : ");
+  scanf("%c", &choice);
+  system("cls");
+  
+  switch (toupper(choice))
+    {
+    case 'A':
+        sushi();
+        break;
+        
+    case 'B':
+        sashimi();
+        break;
+        
+    case 'C':
+        noodle_rice();
+        break;
+        
+    case 'D':
+        printbill();
+        break;
+        
+    case 'E':
+		keluar();
+		break;   
+		 
+    default:
+        main_menu();
+        break;
+    }
+}
+
+void sushi(){
+  int n;
+  int choice = 0; 
+  int c1=15000, c2=15000, c3=15000;
+  int quantity = 0;
+  int again = 0;
+  
+  fflush(stdin);
+  printf("                Welcome to Our Restaurant.          \n ");
+  printf("             +============================+          \n\n");
+  printf("                  $  Sushi Menu  $ \n\n");
+  printf("  && Please select the food that you would like to purchase. && \n\n");
+  printf("\t\t   [1] Salmon Roll	 	- Rp %d \n", c1);
+  printf("\t\t   [2] Tuna Salad Roll	\t- Rp %d \n", c2);
+  printf("\t\t   [3] Tamago Roll		 - Rp %d \n\n", c3);
+  printf("Enter your choice here : ");
+  scanf("%d", &choice);
+  
+    if (choice == 1){
+	    printf("Enter quantity : ");
+	    scanf("%d", &quantity);
+	    
+
+
+	    totalb = stok(quantity,c1);
+	    total1 = totala;
+		system("cls");
+		if (quantity > 0){	  
+			if (x[0] >= quantity){
+			    x[0]-=quantity;
+			    		    printf("\n\n\nYour total amount is Rp %d , Please pay at the counter\n\n\n ", totalb);
+			    		    printf("ini totala %d", totala);
+						    printf("\nWould you like to buy anything else?\n[1] Yes , [2] No : ");
+						    scanf("%d", &again);
+							if (balik(again) ==1) {
+			 				system("cls");	
+						 	main_menu();	
+							}
+							else if (balik(again) ==2) {
+							system("cls");
+							keluar();
+							}
+			}   else {
+				printf("\n\nI'm sorry we don't have enough stock, please choose another one\n\n\n");
+				main_menu();
+				return;
+				}
+		}
+
+	    
+    }
+	else if ( choice == 2){
+	    printf("Enter quantity : ");
+	    scanf("%d", &quantity);
+	    
+	    totalb= stok(quantity,c2);
+	    total2 = totala;
+		system("cls");
+		if (quantity > 0){	  
+			if (x[1] >= quantity){
+			    x[1]-=quantity;
+			    			printf("\n\n\nYour total amount is Rp %d , Please pay at the counter\n\n\n ", totalb);
+			    			printf("ini totala %d", totala);
+							printf("\nWould you like to buy anything else?\n[1] Yes , [2] No : ");
+						    scanf("%d", &again); 
+						 	if (balik(again) ==1) {
+						 	system("cls");	
+						 	main_menu();	
+							}
+							else if (balik(again) ==2) {
+							system("cls");
+							keluar();
+							}
+			
+			 }
+							
+							
+			}	else {
+				printf("\n\nI'm sorry we don't have enough stock, please choose another one\n\n\n");
+				main_menu();
+				return;
+				}
+		}
+		
+	
+	else if ( choice == 3 ){
+	    printf("Enter quantity : ");
+	    scanf("%d", &quantity);
+
+	    totalb= stok(quantity, c3);
+	    total3 = totala;
+		system("cls");
+		if (quantity > 0){	  
+			if (x[2] >= quantity){
+			    x[2]-=quantity;
+			      			printf("\n\n\nYour total amount is Rp %d , Please pay at the counter\n\n\n ", totalb);
+			      			printf("ini totala %d", totala);
+			      			printf("\nWould you like to buy anything else?\n[1] Yes , [2] No : ");
+						    scanf("%d", &again);
+							if (balik(again) ==1) {
+						 	system("cls");	
+						 	main_menu();	
+							}
+							else if (balik(again) ==2) {
+							system("cls");
+							keluar();
+							}
+			}	else {
+				printf("\n\nI'm sorry we don't have enough stock, please choose another one\n\n\n");
+				main_menu();
+				return;
+				}
+		}
+		
+	}
+	
+	else if (choice != 1 , 2 , 3 ){
+		fflush(stdin);
+		system("cls");
+		printf("\n\n\t\t   Invalid Choice Entered\n\n");
+		main_menu();
+	}
+	   char sentence[1000] = "nindasf";
+   int pilih;
+   
+   FILE *fptr;
+   fptr = fopen("data_penjualan.txt", "a");
+   if(fptr == NULL)
+   {
+      printf("Error!");
+      exit(1);
+   }
+
+   if(choice == 1){
+   	 fprintf(fptr,"\n=======%dX Salmon Roll		Rp %d ===========\n",quantity, total1);
+   }
+   else if (choice == 2){
+   	  fprintf(fptr,"\n=======%dX Tuna Salad Roll	Rp %d ===========\n",quantity,total2);
+   }
+      else if (choice == 3){
+   	  fprintf(fptr,"\n=======%dX Tamago Roll		Rp %d ===========\n",quantity,total3);
+   }
+   //printf("Enter a sentence:\n");
+   //gets(sentence);
+   //fprintf(fptr,"\n======= %s ===========\n", sentence);
+   fclose(fptr);	
+  }
+  
+  void sashimi(){
+  int n;
+  int choice = 0; 
+  int c1=20000, c2=15000, c3=20000;
+  int quantity = 0;
+  int again = 0;
+  
+  fflush(stdin);
+  printf("                Welcome to Our Restaurant.          \n ");
+  printf("             +============================+          \n\n");
+  printf("                  $  Sashimi Menu  $ \n\n");
+  printf("  && Please select the food that you would like to purchase. && \n\n");
+  printf("\t\t   [1] Salmon - Rp %d \n", c1);
+  printf("\t\t   [2] Tuna - Rp %d \n", c2);
+  printf("\t\t   [3] Scallop - Rp %d \n\n", c3);
+  printf("Enter your choice here : ");
+  scanf("%d", &choice);
+  
+    if (choice == 1){
+	    printf("Enter quantity : ");
+	    scanf("%d", &quantity);
+	   
+	    totalb= stok(quantity,c1);
+	    total4 = totala;
+		system("cls");
+		if (quantity > 0){	  
+			if (x[3] >= quantity){
+			    x[3]-=quantity;
+			    			printf("\n\n\nYour total amount is Rp %d , Please pay at the counter\n\n\n ", totalb);
+			    			printf("ini totala %d", totala);
+			    			printf("\nWould you like to buy anything else?\n[1] Yes , [2] No : ");
+						    scanf("%d", &again);
+							if (balik(again) ==1) {
+						 	system("cls");	
+						 	main_menu();	
+							}
+							else if (balik(again) ==2) {
+							system("cls");
+							keluar();
+							}
+			}   else {
+				printf("\n\nI'm sorry we don't have enough stock, please choose another one\n\n\n");
+				main_menu();
+				return;
+				}
+		}
+
+    }
+	else if ( choice == 2){
+	    printf("Enter quantity : ");
+	    scanf("%d", &quantity);
+	    
+	    totalb= stok(quantity,c2);
+	    total5 = totala;
+		system("cls");
+		if (quantity > 0){	  
+			if (x[4] >= quantity){
+			    x[4]-=quantity;
+			    			printf("\n\n\nYour total amount is Rp %d , Please pay at the counter\n\n\n ", totalb);
+			    			printf("ini totala %d", totala);
+			    			printf("\nWould you like to buy anything else?\n[1] Yes , [2] No : ");
+						    scanf("%d", &again);
+							if (balik(again) ==1) {
+						 	system("cls");	
+						 	main_menu();	
+							}
+							else if (balik(again) ==2) {
+							system("cls");
+							keluar();
+							}
+			}	else {
+				printf("\n\nI'm sorry we don't have enough stock, please choose another one\n\n\n");
+				main_menu();
+				return;
+				}
+		}
+
+	}
+	else if ( choice == 3 ){
+	    printf("Enter quantity : ");
+	    scanf("%d", &quantity);
+	    
+	    totalb= stok(quantity,c3);
+	    total6 = totala;
+		system("cls");
+		if (quantity > 0){	  
+			if (x[5] >= quantity){
+			    x[5]-=quantity;
+			    			printf("\n\n\nYour total amount is Rp %d , Please pay at the counter\n\n\n ", totalb);
+			    			printf("ini totala %d", totala);
+			    			printf("\nWould you like to buy anything else?\n[1] Yes , [2] No : ");
+						    scanf("%d", &again);
+							if (balik(again) ==1) {
+						 	system("cls");	
+						 	main_menu();	
+							}
+							else if (balik(again) ==2) {
+							system("cls");
+							keluar();
+							}
+			}	else {
+				printf("\n\nI'm sorry we don't have enough stock, please choose another one\n\n\n");
+				main_menu();
+				return;
+				}
+		}
+
+	}
+	else if (choice != 1 , 2 , 3 ){
+		fflush(stdin);
+		system("cls");
+		printf("\n\n\t\t   Invalid Choice Entered\n\n");
+		main_menu();
+	}
+		   char sentence[1000] = "nindasf";
+   int pilih;
+   
+   FILE *fptr;
+   fptr = fopen("data_penjualan.txt", "a");
+   if(fptr == NULL)
+   {
+      printf("Error!");
+      exit(1);
+   }
+     
+   if(choice == 1){
+   	 fprintf(fptr,"\n=======%dX Salmon		Rp %d ===========\n",quantity,total4);
+   	 
+   }
+   else if (choice == 2){
+   	  fprintf(fptr,"\n=======%dX Tuna 		Rp %d ===========\n",quantity,total5);
+   }
+      else if (choice == 3){
+   	  fprintf(fptr,"\n=======%dX Scallop		Rp %d ===========\n",quantity,total6);
+   }
+   //printf("Enter a sentence:\n");
+   //gets(sentence);
+   //fprintf(fptr,"\n======= %s ===========\n", sentence);
+   fclose(fptr);	
+  }
+
+  void noodle_rice(){
+  int n;
+  int choice = 0; 
+  int c1=25000, c2=25000, c3=20000;
+  int quantity = 0;
+  int again = 0;
+  
+  fflush(stdin);
+  printf("                Welcome to Our Restaurant.          \n ");
+  printf("             +============================+          \n\n");
+  printf("                  $  Noodle & Rice Menu  $ \n\n");
+  printf("  && Please select the food that you would like to purchase. && \n\n");
+  printf("\t\t   [1] Ramen - Rp %d \n", c1);
+  printf("\t\t   [2] Udon - Rp %d \n", c2);
+  printf("\t\t   [3] Rice Bowl - Rp %d \n\n", c3);
+  printf("Enter your choice here : ");
+  scanf("%d", &choice);
+  
+    if (choice == 1){
+	    printf("Enter quantity : ");
+	    scanf("%d", &quantity);
+	   
+	    totalb= stok(quantity,c1);
+	    total7 = totala;
+		system("cls");
+		if (quantity > 0){	  
+			if (x[6] >= quantity){
+			    x[6]-=quantity;
+			    			printf("\n\n\nYour total amount is Rp %d , Please pay at the counter\n\n\n ", totalb);
+			    			printf("ini totala %d", totala);
+			    			printf("\nWould you like to buy anything else?\n[1] Yes , [2] No : ");
+						    scanf("%d", &again);
+							if (balik(again) ==1) {
+						 	system("cls");	
+						 	main_menu();	
+							}
+							else if (balik(again) ==2) {
+							system("cls");
+							keluar();
+							}
+			}   else {
+				printf("\n\nI'm sorry we don't have enough stock, please choose another one\n\n\n");
+				main_menu();
+				return;
+				}
+		}
+    }
+	else if ( choice == 2){
+	    printf("Enter quantity : ");
+	    scanf("%d", &quantity);
+
+	    totalb= stok(quantity,c2);
+	    total8 = totala;
+		system("cls");
+		if (quantity > 0){	  
+			if (x[7] >= quantity){
+			    x[7]-=quantity;
+			    			printf("\n\n\nYour total amount is Rp %d , Please pay at the counter\n\n\n ", totalb);
+			    			printf("ini totala %d", totala);
+			    			printf("\nWould you like to buy anything else?\n[1] Yes , [2] No : ");
+						    scanf("%d", &again);
+							if (balik(again) ==1) {
+						 	system("cls");	
+						 	main_menu();	
+							}
+							else if (balik(again) ==2) {
+							system("cls");
+							keluar();
+							}
+			}	else {
+				printf("\n\nI'm sorry we don't have enough stock, please choose another one\n\n\n");
+				main_menu();
+				return;
+				}
+		}
+	}
+	else if ( choice == 3 ){
+	    printf("Enter quantity : ");
+	    scanf("%d", &quantity);
+
+	    totalb= stok(quantity,c3);
+	    total9 = totala;
+		system("cls");
+		if (quantity > 0){	  
+			if (x[8] >= quantity){
+			    x[8]-=quantity;
+			    			printf("\n\n\nYour total amount is Rp %d , Please pay at the counter\n\n\n ", totalb);
+			    			printf("ini totala %d", totala);
+			    			printf("\nWould you like to buy anything else?\n[1] Yes , [2] No : ");
+						    scanf("%d", &again);
+							if (balik(again) ==1) {
+						 	system("cls");
+						 	main_menu();	
+							}
+							else if (balik(again) ==2) {
+							system("cls");
+							keluar();
+							}
+			}	else {
+				printf("\n\nI'm sorry we don't have enough stock, please choose another one\n\n\n");
+				main_menu();
+				return;
+				}
+		}
+	}
+	else if (choice != 1 , 2 , 3 ){
+		fflush(stdin);
+		system("cls");
+		printf("\n\n\t\t   Invalid Choice Entered\n\n");
+		main_menu();
+	}
+		   char sentence[1000] = "nindasf";
+   int pilih;
+   
+   FILE *fptr;
+   fptr = fopen("data_penjualan.txt", "a");
+   if(fptr == NULL)
+   {
+      printf("Error!");
+      exit(1);
+   }
+     
+   if(choice == 1){
+   	 fprintf(fptr,"\n=======%dX Ramen		Rp %d ===========\n",quantity,total7);
+   	 
+   }
+   else if (choice == 2){
+   	  fprintf(fptr,"\n=======%dX Udon		Rp %d ===========\n",quantity,total8);
+   }
+      else if (choice == 3){
+   	  fprintf(fptr,"\n=======%dX Rice Bowl	Rp %d ===========\n",quantity,total9);
+   }
+   //printf("Enter a sentence:\n");
+   //gets(sentence);
+   //fprintf(fptr,"\n======= %s ===========\n", sentence);
+   fclose(fptr);	
+  }
+
+void printbill(){
+	FILE *fp;
+    char str[MAXCHAR];
+    char* filename = "data_penjualan.txt";
+ 
+    fp = fopen(filename, "r");
+    if (fp == NULL){
+        printf("Could not open file %s",filename);
+    }
+    while (fgets(str, MAXCHAR, fp) != NULL)
+        printf("%s", str);
+    fclose(fp);
+    getch();
+    system("cls");
+    main_menu();
+}
+
+void keluar()  {
+  
+  printf("\n\n                  Thank You Very Much          \n ");
+  printf("             +============================+          \n\n");
+  printf("               && Please come again. && \n\n");
+
+}
